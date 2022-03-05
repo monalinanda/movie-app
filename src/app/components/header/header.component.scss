@@ -1,0 +1,17 @@
+.header-container {
+  background-color: #3ab0ff;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  padding: 10px 20px;
+  margin: 0 auto;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}

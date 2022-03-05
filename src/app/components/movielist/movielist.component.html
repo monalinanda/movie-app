@@ -1,0 +1,21 @@
+<div class="main">
+  <ul class="cards">
+    <li class="cards_item" *ngFor="let movie of movieList">
+      <div class="card">
+        <div class="card_image">
+          <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" />
+        </div>
+        <div class="card_content">
+          <h2 class="card_title">{{ movie.title }}</h2>
+          <p class="card_text">Popularity : {{ movie.popularity }}</p>
+          <p class="card_text">Vote Count : {{ movie.vote_count }}</p>
+
+          <div class="btn card_btn">
+            <p class="card_text">{{ movie.release_date }}</p>
+            <p class="card_text">{{ movie.vote_average }}</p>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
