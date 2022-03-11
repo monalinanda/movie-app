@@ -61,12 +61,12 @@ form {
     transition: border-color 250ms ease-in;
 
     &:focus {
-      border-color: #4c70ff;
+      border-color: #051937;
       outline: none;
     }
 
     &:focus + i {
-      color: #4c70ff;
+      color: #051937;
     }
   }
 
@@ -81,7 +81,7 @@ form {
   }
 
   button[type="submit"] {
-    background: #4c70ff;
+    background: #051937;
     border: none;
     border-radius: 6px;
     color: #fff;

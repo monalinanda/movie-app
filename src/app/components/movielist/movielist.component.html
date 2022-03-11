@@ -1,21 +1,45 @@
 <div class="main">
-  <ul class="cards">
-    <li class="cards_item" *ngFor="let movie of movieList">
-      <div class="card">
-        <div class="card_image">
-          <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" />
-        </div>
-        <div class="card_content">
-          <h2 class="card_title">{{ movie.title }}</h2>
-          <p class="card_text">Popularity : {{ movie.popularity }}</p>
-          <p class="card_text">Vote Count : {{ movie.vote_count }}</p>
+  <div class="filter-container">
+    <input type="text" placeholder="Search.." #searchInput />
+    <div class="sort">
+      Order By
+      <button (click)="sort('release_date')">Date</button>
+      <button (click)="sort('popularity')">Populatrity</button>
+    </div>
+  </div>
 
-          <div class="btn card_btn">
-            <p class="card_text">{{ movie.release_date }}</p>
-            <p class="card_text">{{ movie.vote_average }}</p>
+  <div class="moviecard-container">
+    <div class="movie-card-item" *ngFor="let movie of filteredMovieList">
+      <div class="movie-card">
+        <div
+          class="movie-bg-image"
+          [ngStyle]="{
+            'background-image':
+              'url(' +
+              'https://image.tmdb.org/t/p/w500' +
+              movie.poster_path +
+              ')'
+          }"
+        >
+          <div class="ratings">{{ movie.vote_average }}</div>
+        </div>
+        <div class="movie-descriptions">
+          <h1 class="movie-title">{{ movie.title }}</h1>
+          <p class="movie-genre">
+            <span *ngFor="let genre of movie.genre">{{ genre }}</span>
+          </p>
+          <div class="movie-summary">
+            <p class="summary">SUMMARY</p>
+            <p class="votes">Votes: {{ movie.vote_count }}</p>
           </div>
+          <p class="summary-text">
+            {{ movie.overview }}
+          </p>
+          <p class="release-date">
+            <span>{{ movie.release_date }}</span>
+          </p>
         </div>
       </div>
-    </li>
-  </ul>
+    </div>
+  </div>
 </div>
