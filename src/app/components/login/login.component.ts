@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
       this.errorMessage = 'Invalid username or password , try again';
       return;
     }
+    localStorage.setItem('token', '123');
     this.router.navigate(['home']);
   }
 }
