@@ -9,37 +9,42 @@
   </div>
 
   <div class="moviecard-container">
-    <div class="movie-card-item" *ngFor="let movie of filteredMovieList">
-      <div class="movie-card">
-        <div
-          class="movie-bg-image"
-          [ngStyle]="{
-            'background-image':
-              'url(' +
-              'https://image.tmdb.org/t/p/w500' +
-              movie.poster_path +
-              ')'
-          }"
-        >
-          <div class="ratings">{{ movie.vote_average }}</div>
-        </div>
-        <div class="movie-descriptions">
-          <h1 class="movie-title">{{ movie.title }}</h1>
-          <p class="movie-genre">
-            <span *ngFor="let genre of movie.genre">{{ genre }}</span>
-          </p>
-          <div class="movie-summary">
-            <p class="summary">SUMMARY</p>
-            <p class="votes">Votes: {{ movie.vote_count }}</p>
+    <ng-template [ngIf]="filteredMovieList.length > 0" [ngIfElse]="notFound">
+      <div class="movie-card-item" *ngFor="let movie of filteredMovieList">
+        <div class="movie-card">
+          <div
+            class="movie-bg-image"
+            [ngStyle]="{
+              'background-image':
+                'url(' +
+                'https://image.tmdb.org/t/p/w500' +
+                movie.poster_path +
+                ')'
+            }"
+          >
+            <div class="ratings">{{ movie.vote_average }}</div>
           </div>
-          <p class="summary-text">
-            {{ movie.overview }}
-          </p>
-          <p class="release-date">
-            <span>{{ movie.release_date }}</span>
-          </p>
+          <div class="movie-descriptions">
+            <h1 class="movie-title">{{ movie.title }}</h1>
+            <p class="movie-genre">
+              <span *ngFor="let genre of movie.genre">{{ genre }}</span>
+            </p>
+            <div class="movie-summary">
+              <p class="summary">SUMMARY</p>
+              <p class="votes">Votes: {{ movie.vote_count }}</p>
+            </div>
+            <p class="summary-text">
+              {{ movie.overview }}
+            </p>
+            <p class="release-date">
+              <span>{{ movie.release_date }}</span>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    </ng-template>
+    <ng-template #notFound>
+      <p style="margin: auto">Nothing Found!</p>
+    </ng-template>
   </div>
 </div>
